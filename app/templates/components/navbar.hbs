@@ -1,0 +1,8 @@
+
+<ul class="nav nav-pills {{navStacked}}">
+  {{#each navRoutes as |route| }}
+  <LinkTo @route={{route.link}} @tagName="li" @currentWhen={{route.link}} @href="false" activeClass="active">
+    <LinkTo @route={{route.link}} @model={{route.model}}>{{route.name}}</LinkTo>
+  </LinkTo>  
+  {{/each}}
+</ul>

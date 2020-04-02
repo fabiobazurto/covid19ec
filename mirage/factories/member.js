@@ -4,5 +4,5 @@ import faker from 'faker';
 export default Factory.extend({
     firstName() { return faker.name.firstName();},
     lastName() { return faker.name.lastName(); },
-    nationalId() { return faker.random.uuid();},
+    nationalId() { return "0921679346";},
 });

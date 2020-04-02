@@ -1,5 +1,10 @@
-<h1>Miembros de la familia</h1>
 
+<p>
+  <div class="btn-group">
+    <LinkTo @route="members" @class="btn btn-success">Aniadir</LinkTo>
+  </div>
+</p>
+<br>
 <div class="row">
   <div class="col-xs-12 col-lg-12">
     <div class="list-group" role="tablist">
@@ -8,7 +13,7 @@
           <div class="d-flex w-100 justify-content-between">
             <h3 class="mb-1">{{member.fullName}}<small>+</small></h3>
           </div>
-          <p class="small mb-1"><a href={{repo.htmlUrl}}>{{member.nationalId}}</a></p>
+          <p class="small mb-1"><a href={{repo.htmlUrl}}>CI #:{{member.nationalId}}</a></p>
         </a>
         <div class="collapse" id="branch_{{repo.id}}">
           <div class="card card-body">
