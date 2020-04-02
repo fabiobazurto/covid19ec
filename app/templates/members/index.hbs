@@ -1,0 +1,22 @@
+<h1>Miembros de la familia</h1>
+
+<div class="row">
+  <div class="col-xs-12 col-lg-12">
+    <div class="list-group" role="tablist">
+      {{#each model as |member|}}
+        <a data-toggle="collapse" href="#branch_" class="repo list-group-item list-group-item-action flex-column align-items-start" role="button" aria-expanded="false" aria-controls="branch_">
+          <div class="d-flex w-100 justify-content-between">
+            <h3 class="mb-1">{{member.fullName}}<small>+</small></h3>
+          </div>
+          <p class="small mb-1"><a href={{repo.htmlUrl}}>{{member.nationalId}}</a></p>
+        </a>
+        <div class="collapse" id="branch_{{repo.id}}">
+          <div class="card card-body">
+            <small>REPORTAR</small>
+          </div>
+        </div>
+      {{/each}}      
+    </div>
+  </div>
+</div>
+
