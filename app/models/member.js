@@ -8,5 +8,6 @@ export default Model.extend({
     nationalId: attr(),
     fullName: computed('firstName', 'lastName', function(){
 	return `${this.firstName} ${this.lastName}`;
-    })
+    }),
+    status: attr('number'),
 });
