@@ -1,0 +1,32 @@
+{{#if this.model.alive}}
+<div class="form-group">
+  <h3>¿Tiene sintomas?</h3>
+
+  <label class="radio-container">  {{radio-button value='3' name="status" checked=this.model.status}}<span class="checkmark"></span>SI</label>
+  <label class="radio-container">  {{radio-button value='4' name="status" checked=this.model.status}}<span class="checkmark"></span>NO</label>
+</div>
+
+
+{{else}}
+<div class="form-group">
+  <h3>¿Cuál fue el motivo del fallecimiento?</h3>
+
+  <label class="radio-container">  {{radio-button value='1' name="status" checked=this.model.status}}<span class="checkmark"></span>COVID 19</label>
+  <label class="radio-container">  {{radio-button value='2' name="status" checked=this.model.status}}<span class="checkmark"></span>OTRO MOTIVO</label>
+</div>
+
+<div class="form-group">
+  <h3>¿Ya fue retirado el cadáver?</h3>
+ 
+        <label class="radio-container">  {{radio-button value='1' name="picked" checked=this.model.picked}}<span class="checkmark"></span>SI</label>
+        <label class="radio-container">  {{radio-button value='0' name="picked" checked=this.model.picked}}<span class="checkmark"></span>NO</label>
+</div>
+{{/if}}  
+<div class="form-group ">
+  <div class="offset-sm-2 col-sm-3 pull-left">
+    <LinkTo @route="members.new.isAlive" @class="btn btn-default">Anterior</LinkTo>
+  </div>
+  <div class="offset-sm-2 col-sm-2 pull-right">
+    <button {{action 'submitForm' this.model}} class='btn btn-danger'>Terminar</button>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<fieldset class="scheduler-border">
+
+    <div class="form-group">
+      <label for="nationalId">Cedula</label>
+      <Input name="nationalId" type="number" placeholder="Cedula" @value={{this.model.member.nationalId}} @class="form-control" @size="10" @maxlength="10"/>
+    </div>
+    
+    <div class="form-group">
+      <label for="firstName">Nombres</label>
+      <Input name="firstName" placeholder="Nombres" @value={{this.model.member.firstName}} class="form-control" size="50" />
+    </div>
+    
+    <div class="form-group">
+      <label for="lastName">Apellidos</label>
+      <Input name="lastName"  placeholder="Apellidos" @value={{this.model.member.lastName}} class="form-control" size="50" />
+    </div>
+
+    <div class="form-group ">
+      <div class="offset-sm-2 col-sm-2 pull-left">
+        <LinkTo @route="members.index"  @class="btn btn-default">Cancelar</LinkTo>
+      </div>
+      
+      <div class="offset-sm-2 col-sm-2 pull-right">
+        <button {{action 'stepone' this.model.member}}  class="btn btn-primary">Siguiente</button>
+      </div>
+    </div>
+
+</fieldset>
+
+

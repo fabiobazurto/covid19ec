@@ -10,4 +10,9 @@ export default Model.extend({
 	return `${this.firstName} ${this.lastName}`;
     }),
     status: attr('number'),
+    gender: attr('string'),
+    province: attr('string'),
+    city: attr('string'),
+    picked: attr('boolean'),
+    alive: attr('boolean'),
 });
