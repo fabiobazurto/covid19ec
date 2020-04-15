@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
 	let ENV = {
-		modulePrefix: 'reggina',
+		modulePrefix: 'covidec',
 		environment,
 		rootURL: '/',
 		apiNamespace: process.env.API_NAMESAPCE,
