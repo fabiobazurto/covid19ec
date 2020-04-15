@@ -1,41 +1,85 @@
 import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 
 export default Controller.extend({
+    errors:'',
+    finale: false,
+    root:'members.new.',
+    screens:'',
+    validate:'',
+    totalScreens: computed('screens', function(){
+        var n = this.get('screens.length');
+        return n;
+    }),
+    init: function(){
+        this._super();
+        this.set('screens',['general','demographics','isAlive','wasPicked' ]);
+        this.set('validate',[['firstName','lastName','nationalId'],['gender', 'city', 'province'],['alive'],['status']]);
+    },
+    current:0,
+    
+    showNext: computed('current','totalScreens', function(){
+        return (this.get('current')+1 < this.get('totalScreens'));
+    }),
+    showPrevious: computed('current','screens', function(){
+        return (this.get('current')-1 >= 0);
+    }),
+   
     actions: {
-	stepone(member){
-	    debugger
-	    let cad = member.nationalId.trim();
-            let total = 0;
-            const longitud = cad.length;
-            let longcheck = longitud - 1;
-	    let i =0;
-            if (cad !== "" && longitud === 10){
-		for(i = 0; i < longcheck; i++){
-		    if (i%2 === 0) {
-			var aux = cad.charAt(i) * 2;
-			if (aux > 9) aux -= 9;
-			total += aux;
-		    } else {
-			total += parseInt(cad.charAt(i)); // parseInt o concatenará en lugar de sumar
-		    }
-		}
-
-		total = total % 10 ? 10 - total % 10 : 0;
-
-		if (cad.charAt(longitud-1) == total && member.firstName.trim().length>0 && member.lastName.trim().length>0) {
-		     this.transitionToRoute('members.new.demographics');
-		}else{
-		    return false;
-		}
+        validateLength(event){
+            if (event.target.value.length >= event.target.maxLength){
+                event.preventDefault(); //stop character from entering input
+                return false;
             }
-	},
-	submitForm(member){
-	    member.save();
-	    this.transitionToRoute('members.new.confirmation');
-	},
-	closeForm(model){
-	    model.deleteRecord();
-	    this.transitionToRoute('members.index');	    
-	}
+        },
+        validateNumber(event){
+            if(event.which != 8 && isNaN(String.fromCharCode(event.which))){
+                event.preventDefault(); //stop character from entering input
+                return false;
+            }
+        },
+        goPrevious(){
+            this.set('current',this.get('current')-1);
+            this.transitionToRoute('members.new.' + this.get('screens')[this.get('current')]);
+        },
+        goNext(member){
+            //verificar existencia
+            if (member.validate({only: this.get('validate')[this.get('current')]}))
+            {
+                this.set('errors',null);
+                this.set('current',this.get('current')+1);
+                if(this.get('current')>=this.get('totalScreens')){
+                    this.set('finale',true)
+                }
+                this.transitionToRoute('members.new.' + this.get('screens')[this.get('current')]);
+            }
+            else{
+                this.set('errors',member.get('errors'));
+            }
+        },
+        submitForm(member){
+            const _this = this;               
+            if(member.validate()){
+                member.save().then(
+                    //success
+                    function(){
+                        _this.set('current',_this.get('current')+1);
+                        _this.set('finale',true);
+                        _this.transitionToRoute('members.new.confirmation');
+                    },
+                    //error
+                    function(){
+                        
+                    });
+            }
+            else
+            {
+                this.set('errors',member.get('errors'));                
+            }
+        },
+        closeForm(model){
+            model.deleteRecord();
+            this.transitionToRoute('members.index');
+        }
     }
 });

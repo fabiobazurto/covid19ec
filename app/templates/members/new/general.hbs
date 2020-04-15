@@ -1,28 +1,30 @@
+
 <fieldset class="scheduler-border">
-
-    <div class="form-group">
-      <label for="nationalId">Cedula</label>
-      <Input name="nationalId" type="number" placeholder="Cedula" @value={{this.model.member.nationalId}} @class="form-control" @size="10" @maxlength="10"/>
+    <div class="form-group {{if this.errors.nationalId 'error'}}">
+<!--      <label for="nationalId">Cedula</label> -->
+      <Input name="nationalId" type="number" placeholder="Ingrese su Cedula" @value={{this.model.member.nationalId}} @class="form-control  numberText " @maxlength="10" @size="10" @keyPress={{ action "validateLength" }}  @keyDown={{ action "validateNumber" }}/>
+      {{#if this.errors.nationalId }}
+        <span class="help-block">{{this.errors.nationalId.[0].message}}</span>
+      {{/if}}
+        
     </div>
     
-    <div class="form-group">
-      <label for="firstName">Nombres</label>
-      <Input name="firstName" placeholder="Nombres" @value={{this.model.member.firstName}} class="form-control" size="50" />
-    </div>
-    
-    <div class="form-group">
-      <label for="lastName">Apellidos</label>
-      <Input name="lastName"  placeholder="Apellidos" @value={{this.model.member.lastName}} class="form-control" size="50" />
-    </div>
-
-    <div class="form-group ">
-      <div class="offset-sm-2 col-sm-2 pull-left">
-        <LinkTo @route="members.index"  @class="btn btn-default">Cancelar</LinkTo>
-      </div>
+    <div class="form-group  {{if this.errors.firstName 'error'}}">
+<!--      <label for="firstName">Nombres</label> -->
+      <Input name="firstName" placeholder="Ingrese Primer Nombre" @value={{this.model.member.firstName}} class="form-control" @maxlength="50" size="50" />
+      {{#if this.errors.firstName }}
+        <span class="help-block">{{this.errors.firstName.[0].message}}</span>
+      {{/if}}
       
-      <div class="offset-sm-2 col-sm-2 pull-right">
-        <button {{action 'stepone' this.model.member}}  class="btn btn-primary">Siguiente</button>
-      </div>
+    </div>
+    
+    <div class="form-group  {{if this.errors.lastName 'error'}}">
+<!--      <label for="lastName">Apellidos</label> -->
+      <Input name="lastName"  placeholder="Ingrese sus Apellidos" @value={{this.model.member.lastName}} class="form-control" size="50" @maxlength="50" />
+      {{#if this.errors.lastName }}
+        <span class="help-block">{{this.errors.lastName.[0].message}}</span>
+      {{/if}}
+      
     </div>
 
 </fieldset>

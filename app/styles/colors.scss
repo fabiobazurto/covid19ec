@@ -5,12 +5,18 @@ $black: #000000;
 $danger: #ff0000;
 $warning: #dddd00;
 $purple: #6a0dad;
-$green: #00b300;
+//$green: #00b300;
+$green: #8FBC94;
+$yellow: #EFDC05;
+
 //Configurations
 
 //Colour profile
 $dark-transparency: rgba($black, 0.47);
 $light-font: $white;
+$light-danger: #d95c5c;
 
-
+$active: $brand-primary;
+$inactive: lighten($brand-primary,40%);
+$done: $brand-primary;
 //Size Font

@@ -12,10 +12,10 @@ export default DS.RESTAdapter.extend(DataAdapterMixin,{
 		xhr.setRequestHeader('client', this.get('session.data.authenticated.client'));
 	},
 
-    shouldBackgroundReloadAll(store, snapshot) {
-	return true;
+    shouldBackgroundReloadAll() {
+        return true;
     },
-    shouldReloadAll(store, snapshot) {
-	return false;
+    shouldReloadAll() {
+        return false;
     }    
 });

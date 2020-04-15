@@ -1,19 +1,12 @@
-    <div class="form-group">
+    <div class="form-group {{if this.errors.alive 'error'}}">
       <label>¿Este familiar está vivo?</label>
 
-        <label class="radio-container">  {{radio-button value=true name="alive" checked=this.model.alive}}<span class="checkmark"></span>SI</label>
-        <label class="radio-container">  {{radio-button value=false name="alive" checked=this.model.alive}}<span class="checkmark"></span>NO</label>
-
+        <label class="radio-container">  {{radio-button value=true name="alive" checked=this.model.member.alive}}<span class="checkmark"></span>SI</label>
+        <label class="radio-container">  {{radio-button value=false name="alive" checked=this.model.member.alive}}<span class="checkmark"></span>NO</label>
+        {{#if this.errors.alive }}
+          <span class="help-block">{{this.errors.alive.[0].message}}</span>
+        {{/if}}
     </div>
-    <div class="container">
-
-      <div class="form-group ">
-        <div class="offset-sm-2 col-sm-3 pull-left">
-          <LinkTo @route="members.new.demographics" @class="btn btn-default">Anterior</LinkTo>
-        </div>
-        <div class="offset-sm-2 col-sm-2 pull-right">
-          <LinkTo @route="members.new.wasPicked" @class="btn btn-primary">Siguiente</LinkTo>
-        </div>
-      </div>
-    </div>
+   
     
+ 

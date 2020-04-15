@@ -23,6 +23,8 @@ export default Base.extend({
 		});
     },
     authenticate: function(options) {
+console.log('HOLA HOLA');
+console.log(config);
 		return new Promise((resolve, reject) => {
 			$.ajax({
 				url: this.serverTokenEndpoint,

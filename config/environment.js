@@ -6,9 +6,9 @@ module.exports = function(environment) {
 		environment,
 		rootURL: '/',
 		apiNamespace: '/api/v1',
-		apiUrl: '',
-		apiAuthRoute: '',
-		apiRegisterRoute: '',
+		apiUrl: 'http://192.168.100.160:3000',
+		apiAuthRoute: '/auth',
+		apiRegisterRoute: '/register',
 		company_id: '1',		
 		locationType: 'auto',
 		'ember-cli-notifications': {
@@ -43,6 +43,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
       // ENV.APP.LOG_VIEW_LOOKUPS = true;
+ENV['ember-cli-mirage'] = {
+    enabled: false
+  };
   }
 
 

@@ -13,8 +13,8 @@ model() {
   // otherwise it will no longer be live.
   return this.store.peekAll('member');
 }
-    //model() {
+//    model() {
 //	      return this.store.findAll('member',{reload: true});
- //   },
+//    },
     
 });

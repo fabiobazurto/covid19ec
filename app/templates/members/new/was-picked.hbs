@@ -23,10 +23,10 @@
 </div>
 {{/if}}  
 <div class="form-group ">
-  <div class="offset-sm-2 col-sm-3 pull-left">
-    <LinkTo @route="members.new.isAlive" @class="btn btn-default">Anterior</LinkTo>
-  </div>
+{{#unless showNext}}
   <div class="offset-sm-2 col-sm-2 pull-right">
     <button {{action 'submitForm' this.model}} class='btn btn-danger'>Terminar</button>
   </div>
+{{/unless}}
+
 </div>

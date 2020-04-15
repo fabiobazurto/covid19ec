@@ -1,26 +1,26 @@
-<div class="form-group">
-      <label for="name" class="">Genero</label>
 
-        <label class="radio-container">  {{radio-button value='M' name="gender" checked=this.model.member.gender}}<span class="checkmark"></span>Masculino</label>
-        <label class="radio-container">  {{radio-button value='F' name="gender" checked=this.model.member.gender}}<span class="checkmark"></span>Femenino</label>
+<div class="form-group  {{if this.errors.gender 'error'}}">
+  <label for="name" class="">Género</label>
+  <label class="radio-container">  {{radio-button value='M' name="gender" checked=this.model.member.gender}}<span class="checkmark"></span>Masculino</label>
+  <label class="radio-container">  {{radio-button value='F' name="gender" checked=this.model.member.gender}}<span class="checkmark"></span>Femenino</label>
+  {{#if this.errors.gender }}
+    <span class="help-block">{{this.errors.gender.[0].message}}</span>
+  {{/if}}
+</div>
 
+<div class="form-group {{if this.errors.province 'error'}}">
+  <label for="name">Provincia</label>
+  <ListCombo @items={{this.model.provinces}} @fieldMember={{this.model.member.province}}/>
+  {{#if this.errors.province }}
+    <span class="help-block">{{this.errors.province.[0].message}}</span>
+  {{/if}}
+</div>
 
-    </div>
-    <div class="form-group">
-      <label for="province">Provincia</label><br>
-      <ListCombo @items={{this.model.provinces}} @fieldMember={{this.model.member.province}}/>
-    </div>
-    <div class="form-group">
-      <label for="name">Ciudad</label>
-      <Input type="text" placeholder="Ciudad" @value={{this.model.member.city}} class="form-control" size="50" />
-    </div>
+<div class="form-group {{if this.errors.city 'error'}}">
+  <label for="name">Ciudad</label>
+  <Input type="text" placeholder="Ciudad" @value={{this.model.member.city}} class="form-control" size="50" />
+  {{#if this.errors.city }}
+    <span class="help-block">{{this.errors.city.[0].message}}</span>
+  {{/if}}
+</div>
 
-    <div class="form-group ">
-      <div class="offset-sm-2 col-sm-3 pull-left">
-        <LinkTo @route="members.new.general"  @class="btn btn-default">Anterior</LinkTo>
-      </div>
-      <div class="offset-sm-2 col-sm-2 pull-right">
-        <LinkTo @route="members.new.isAlive"  @class="btn btn-primary">Siguiente</LinkTo>
-      </div>
-    </div>
-    

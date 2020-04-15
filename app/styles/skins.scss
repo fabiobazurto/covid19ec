@@ -1,0 +1,264 @@
+/* Inputs */
+
+.scheduler-border{
+    padding:20px;
+}
+
+input.form-control{
+    height:50px;
+}
+
+/*Error label*/
+
+.error input {
+  border: 2px solid red;
+  border-radius: 4px;
+}
+
+.error span.help-block {
+    display: block;
+    margin-bottom: .5em;
+    font-size: .9285em;
+    color: $light-danger;
+    opacity: .6;
+    padding-left: 5px;
+}
+
+/* Progress bar */
+/*progressbar*/
+.progressbar {
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+	width: 60%;
+	margin: 0 auto 30px;
+}
+.progressbar li {
+	list-style-type: none;
+	color: white;
+	text-transform: uppercase;
+	font-size: 9px;
+	width: 33.33%;
+	float: left;
+	position: relative;
+}
+.progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 10px;
+	color: #333;
+	background: white;
+	border-radius: 50%;
+	margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+.progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: white;
+	position: absolute;
+	left: -50%;
+	top: 9px;
+	z-index: -1; /*put it behind the numbers*/
+}
+.progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+.progressbar li.active:before,  .progressbar li.active:after{
+	background: rgb(255,99,71);
+	color: $white;
+}
+
+
+ .sign-up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sign-up .step-list {
+  height: 5px;
+  background: rgba($inactive, 0.35);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top:30px;
+}
+.sign-up .step-list i{
+    color: $white;
+}
+.sign-up .step-list .step {
+  widtH: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background: $inactive;
+  margin-right: 50px;
+  position: relative;
+  text-align: center;
+  line-height: 40px;
+  transition: 0.35s ease-in-out;
+}
+.sign-up .step-list .step.current {
+  box-shadow: 0px 0px 10px 2px rgba($active, 0.75);
+}
+.sign-up .step-list .step.fin.current {
+  box-shadow: 0px 0px 0px 0px rgba($active, 0);
+  background: #8FBC94;
+  color: $white;
+}
+.sign-up .step-list .step.done {
+  background: $done;
+  color: $white;
+  border:none;
+}
+.sign-up .step-list .step.done:after {
+  width: 50px;
+}
+.sign-up .step-list .step:last-child {
+  margin-right: 0;
+}
+.sign-up .step-list .step:last-child.done:after {
+  width: 0px;
+}
+.sign-up .step-list .step:last-child:after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  display: inherit;
+  background: none;
+  position: inherit;
+  top: inherit;
+  right: inherit;
+  transform: inherit;
+  transition: inherit;
+}
+.sign-up .step-list .step:after {
+  content: "";
+  width: 0px;
+  height: 5px;
+  display: block;
+  background: $done;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(100%, -50%);
+  transition: 0.35s ease-in-out;
+}
+
+/* CONFIRMATION */
+
+i.bigger-size {
+  font-size: 280px;
+  color: $brand-success;
+}
+
+
+.sign-up .steps .step {
+  width: 300px;
+  background: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  display: none;
+  position: relative;
+}
+.sign-up .steps .step.active {
+  display: block;
+}
+.sign-up .steps .step .title {
+  margin: 0;
+  margin-bottom: 20px;
+}
+.sign-up .steps .step .field {
+  padding: 10px 0;
+  text-align: left;
+}
+.sign-up .steps .step .field .error-label {
+  border: 1px solid #E71D36;
+  background: #fdecef;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px;
+}
+.sign-up .steps .step .field .error-label p.error-count {
+  margin: 0;
+}
+.sign-up .steps .step .field:first-child {
+  padding-top: 0;
+}
+.sign-up .steps .step .field label, .sign-up .steps .step .field input {
+  display: block;
+  widtH: 100%;
+  transition: 0.15s ease-in-out;
+}
+.sign-up .steps .step .field input {
+  outline: 0;
+  padding: 5px 0;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+.sign-up .steps .step .field input:focus {
+  border-bottom: 1px solid #8FBC94;
+}
+.sign-up .steps .step .field.next, .sign-up .steps .step .field.fin {
+  text-align: center;
+}
+.sign-up .steps .step .field.next button, .sign-up .steps .step .field.fin button {
+  padding: 15px 40px;
+  background: #8FBC94;
+  outline: 0;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  transition: 0.15s ease-in-out;
+  cursor: pointer;
+}
+.sign-up .steps .step .field.next button:hover, .sign-up .steps .step .field.fin button:hover {
+  background: #9fc6a3;
+}
+.sign-up .steps .step .field.next button:disabled, .sign-up .steps .step .field.fin button:disabled {
+  background: #ccc;
+  color: #999;
+  cursor: inherit;
+}
+.sign-up .steps .step .field.next button:disabled:hover, .sign-up .steps .step .field.fin button:disabled:hover {
+  background: #ccc;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes dot-1 {
+  0% {
+    transform: translate(0px, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50px, 0) rotate(180deg);
+  }
+  100% {
+    transform: translate(0px, 0) rotate(360deg);
+  }
+}
+@keyframes dot-2 {
+  0% {
+    transform: translate(0px, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(50px, 0) rotate(180deg);
+  }
+  100% {
+    transform: translate(0px, 0) rotate(360deg);
+  }
+}
