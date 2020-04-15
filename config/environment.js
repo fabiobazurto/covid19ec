@@ -70,7 +70,7 @@ ENV['ember-cli-mirage'] = {
 		// here you can enable a production-specific feature
   ENV.apiUrl = process.env.API_URL;
       ENV.apiNamespace=process.env.API_NAMESPACE;
-      ENV.apiAuthRoute='customer_auth';
+      ENV.apiAuthRoute=process.env.TOKEN_ROUTE;
           ENV.apiRegisterRoute= process.env.REGISTER_ROUTE;
 
 	}
