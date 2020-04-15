@@ -7,8 +7,8 @@ module.exports = function(environment) {
 		rootURL: '/',
 		apiNamespace: '/api/v1',
 		apiUrl: 'http://192.168.100.160:3000',
-		apiAuthRoute: '/auth',
-		apiRegisterRoute: '/register',
+		apiAuthRoute: '/sign_in',
+		apiRegisterRoute: '/auth',
 		company_id: '1',		
 		locationType: 'auto',
 		'ember-cli-notifications': {
