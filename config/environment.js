@@ -8,7 +8,7 @@ module.exports = function(environment) {
 		apiNamespace: process.env.API_NAMESAPCE,
 		apiUrl: process.env.API_URL,
 		apiAuthRoute: process.env.TOKEN_ROUTE,
-		apiRegisterRoute: proccess.env.REGISTER_ROUTE,
+		apiRegisterRoute: process.env.REGISTER_ROUTE,
 		company_id: '1',		
 		locationType: 'auto',
 		'ember-cli-notifications': {
