@@ -1,32 +1,26 @@
-{{#if this.model.alive}}
-<div class="form-group">
-  <h3>¿Tiene sintomas?</h3>
-
-  <label class="radio-container">  {{radio-button value='3' name="status" checked=this.model.status}}<span class="checkmark"></span>SI</label>
-  <label class="radio-container">  {{radio-button value='4' name="status" checked=this.model.status}}<span class="checkmark"></span>NO</label>
-</div>
-
-
+{{#if this.model.member.alive}}
+  <div class="form-group is-alive">
+    <h3>¿Tiene sintomas?</h3>
+    <label class="radio-container sintom">  {{radio-button value="3" name="status" checked=this.model.member.status}}<span class="checkmark"></span>SI</label>
+    <label class="radio-container">  {{radio-button value="4" name="status" checked=this.model.member.status}}<span class="checkmark"></span>NO</label>
+  </div>
 {{else}}
-<div class="form-group">
-  <h3>¿Cuál fue el motivo del fallecimiento?</h3>
+  <div class="form-group dead">
+    <h3>¿Cuál fue el motivo del fallecimiento?</h3>
+    <label class="radio-container">  {{radio-button value="1" name="status" checked=this.model.member.status}}<span class="checkmark"></span>COVID 19</label>
+    <label class="radio-container">  {{radio-button value="2" name="status" checked=this.model.member.status}}<span class="checkmark"></span>OTRO MOTIVO</label>
+  </div>
 
-  <label class="radio-container">  {{radio-button value='1' name="status" checked=this.model.status}}<span class="checkmark"></span>COVID 19</label>
-  <label class="radio-container">  {{radio-button value='2' name="status" checked=this.model.status}}<span class="checkmark"></span>OTRO MOTIVO</label>
-</div>
-
-<div class="form-group">
-  <h3>¿Ya fue retirado el cadáver?</h3>
- 
-        <label class="radio-container">  {{radio-button value='1' name="picked" checked=this.model.picked}}<span class="checkmark"></span>SI</label>
-        <label class="radio-container">  {{radio-button value='0' name="picked" checked=this.model.picked}}<span class="checkmark"></span>NO</label>
-</div>
+  <div class="form-group">
+    <h3>¿Ya fue retirado el cadáver?</h3>
+    <label class="radio-container">  {{radio-button value="1" name="picked" checked=this.model.member.picked}}<span class="checkmark"></span>SI</label>
+    <label class="radio-container">  {{radio-button value="0" name="picked" checked=this.model.member.picked}}<span class="checkmark"></span>NO</label>
+  </div>
 {{/if}}  
 <div class="form-group ">
-{{#unless showNext}}
-  <div class="offset-sm-2 col-sm-2 pull-right">
-    <button {{action 'submitForm' this.model}} class='btn btn-danger'>Terminar</button>
-  </div>
-{{/unless}}
-
+  {{#unless showNext}}
+    <div class="offset-sm-2 col-sm-2 pull-right">
+      <button {{action "submitForm" this.model.member}} class="btn btn-danger goFinish">Terminar</button>
+    </div>
+  {{/unless}}
 </div>

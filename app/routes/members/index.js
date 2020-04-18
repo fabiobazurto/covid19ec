@@ -4,7 +4,7 @@ export default Route.extend({
 // route.js
 beforeModel() {
   // using return ensures this hook waits for the promise to resolve before moving on
-  return this.store.query('member', { id: 'isPublished' });
+  return this.store.findAll('member');
 },
 
 model() {

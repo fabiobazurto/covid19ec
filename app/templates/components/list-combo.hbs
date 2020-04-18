@@ -1,6 +1,6 @@
-<select {{action "selectValue"  on="change"}} class="form-control">
-  <option selected> {{this.defaultLabel}} </option>
+<select {{action "selectValue"  on="change"}} name={{name}} class="form-control cbo-list" >
+  <option class="cbo-option" selected> {{this.defaultLabel}} </option>
   {{#each this.items as |item|}}
-    <option value={{item.id}} >{{item.name}}</option>
+    <option class="cbo-option" value={{item.id}} >{{item.name}}</option>
   {{/each}}
 </select>

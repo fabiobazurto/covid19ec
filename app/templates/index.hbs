@@ -1,3 +1,21 @@
-<UserNav />
-<Dashboard/>
-{{prize-list model=model}}
+<div class="container">
+  <h2>Miembros</h2>
+  <div class="btn-group pull-right">
+    <LinkTo @route="members.new.general" @class="btn btn-success">Añadir</LinkTo>
+  </div>
+</div>
+
+<div class="instructions">
+  
+</div>
+
+<br>
+<div class="row">
+  <div class="col-xs-12 col-lg-12">
+    <div class="list-group" role="tablist">
+      {{#each model as |member|}}
+        <MemberRow @member={{member}} />
+      {{/each}}      
+    </div>    
+  </div>
+</div>

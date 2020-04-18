@@ -1,14 +1,34 @@
+import Mirage from 'ember-cli-mirage';
+
 export default function() {
-   this.namespace = '/api/v1'
+    this.namespace = '/api/v1';
     //find all members
 
     this.post('members');
+    this.post('auth', function(){
+        return {
+            "status": "success",
+            "data": {
+                "uid": "fabio.baazusrto@gmail.com",
+                "id": 5,
+                "email": "fabio.baazusrto@gmail.com",
+                "provider": "email",
+                "allow_password_change": false,
+                "name": null,
+                "nickname": null,
+                "image": null,
+                "created_at": "2020-04-17T03:59:52.000Z",
+                "updated_at": "2020-04-17T03:59:53.000Z"
+            }
+        };
+    });
+    
     this.get('members', (schema)=>{
 
         return schema.members.all();
     });
 
-    this.get('provinces', (schema)=>{
+    this.get('provinces', ()=>{
 
         return {"provinces":[
   {
@@ -87,4 +107,50 @@ export default function() {
 
     });
 
+
+    this.get('/api/v1/users/current', function(db, request){
+        if(request.requestHeaders.Authorization === "Bearer PA$$WORD") {
+            return { user: { id: 1, firstName: 'Chase', lastName: 'McCarthy' } };
+        }else{
+            return new Mirage.Response(401, {}, {});
+        }
+    });
+
+
+    this.post('/auth/sign_in', function(db, request){
+
+        var attrs = JSON.parse(request.requestBody)
+        if(attrs.email === "user@email.com" && attrs.password === "secret") {
+
+            let header = {
+                "access-Token":"PA$$WORD",
+                "token":"PA$$WORD",
+                "uuid":attrs.email,                                
+                "token-type":"bearer",
+                "client": attrs.email,
+                "fullname":"Long ff",
+                "expiry": "1588125543"
+            };
+
+            let responser = {
+                "data": {
+                    "id": 1,
+                    "email": "fabio.bazurto5@gmail.com",
+                    "provider": "email",
+                    "uid": "fabio.bazurto5@gmail.com",
+                    "allow_password_change": false,
+                    "name": null,
+                    "nickname": null,
+                    "image": null
+                }
+            };
+            return new Mirage.Response(201, header, responser);            
+        }else{
+            var body = { errors: 'Email or password is invalid' };
+            return new Mirage.Response(401, {}, body);
+        }
+    });
+
+    this.passthrough()
+    
 }

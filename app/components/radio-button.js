@@ -1,6 +1,6 @@
 import Component from '@ember/component';
-import { next } from '@ember/runloop';
-import { computed } from '@ember/object';
+//import { next } from '@ember/runloop';
+//import { computed } from '@ember/object';
 export default Component.extend({
     tagName: 'input',
     type: 'radio',
@@ -15,11 +15,12 @@ export default Component.extend({
         this.set('checked', this.get('value'));
     },
 
-    _updateElementValue: function() {
+   /* _updateElementValue: function() {
         next(this, function() {
-            this.$().prop('checked', this.get('htmlChecked'));
+            this.element.prop('checked', this.get('htmlChecked'));
         });
     }.observes('htmlChecked')
+*/
 });
 
 

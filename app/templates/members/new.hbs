@@ -1,35 +1,33 @@
 <div class="container ">
   {{#unless finale}}
     <div class="header">
-      <a {{action 'closeForm' this.model.member}}><i class="fas fa-times fa-3x pull-right" style="color:'#ccc'"></i></a>
+      <a {{action "closeForm" this.model.member}}><i class="fas fa-times fa-3x pull-right" style="color:'#ccc'"></i></a>
       <h2 class="text-center">Nuevo Miembro</h2>
     </div>
-
     <div class="sign-up">
-      <div class='step-list'>
-		    <div class='step {{step-status current 0}}'><i class="fa fa-user" aria-hidden="true"></i></div>
-		    <div class='step  {{step-status current 1}}'><i class="fa fa-globe" aria-hidden="true"></i></div>
-		    <div class='step  {{step-status current 2}}'><i class="fa fa-exclamation" aria-hidden="true"></i></div>
-		    <div class='step  {{step-status current 3}} fin'><i class="fa fa-check" aria-hidden="true"></i></div>
-	    </div>
+      <div class="step-list">
+        <div class="step {{step-status current 0}}"><i class="fa fa-user" aria-hidden="true"></i></div>
+        <div class="step  {{step-status current 1}}"><i class="fa fa-globe" aria-hidden="true"></i></div>
+        <div class="step  {{step-status current 2}}"><i class="fa fa-exclamation" aria-hidden="true"></i></div>
+        <div class="step  {{step-status current 3}} fin"><i class="fa fa-check" aria-hidden="true"></i></div>
+      </div>
     </div>
   {{/unless}}
-    <div class="form-block">
-      {{liquid-outlet}}
-      <div class="form-group ">
-        {{#unless finale}}
-          {{#if showPrevious}}
-            <div class="offset-sm-2 col-sm-2 pull-left">
-              <button {{action 'goPrevious' this.model.member}}  class="btn btn-primary">Anterior</button>
-            </div>
-          {{/if}}
-        {{/unless}}
-        {{#if showNext}}
-          <div class="offset-sm-2 col-sm-2 pull-right">
-            <button {{action 'goNext' this.model.member}}  class="btn btn-primary">Siguiente</button>
+  <div class="form-block">
+    {{liquid-outlet}}
+    <div class="form-group ">
+      {{#unless finale}}
+        {{#if showPrevious}}
+          <div class="offset-sm-2 col-sm-2 pull-left">
+            <button {{action "goPrevious" this.model.member}}  class="btn btn-primary goprevious">Anterior</button>
           </div>
         {{/if}}
-      </div>
-
+      {{/unless}}
+      {{#if showNext}}
+        <div class="offset-sm-2 col-sm-2 pull-right">
+          <button {{action "goNext" this.model.member}}  class="btn btn-primary gonext">Siguiente</button>
+        </div>
+      {{/if}}
     </div>
+  </div>
 </div>

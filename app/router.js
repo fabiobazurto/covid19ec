@@ -21,6 +21,7 @@ Router.map(function() {
       this.route('confirmation');
     });
   });
+  this.route('notes');
 });
 
 export default Router;

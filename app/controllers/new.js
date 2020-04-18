@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 
+
 export default Controller.extend({
     errors:'',
     finale: false,
@@ -13,8 +14,8 @@ export default Controller.extend({
     }),
     init: function(){
         this._super();
-        this.set('screens',['general','demographics','isAlive','wasPicked' ]);
-        this.set('validate',[['firstName','lastName','nationalId'],['gender', 'city', 'province'],['alive'],['status']]);
+	this.set('screens',['general','demographics','isAlive','wasPicked' ]);
+	this.set('validate',[['firstName','lastName','nationalId'],['gender', 'city', 'province'],['alive'],['status']]);
     },
     current:0,
     
@@ -66,11 +67,10 @@ export default Controller.extend({
                         _this.set('current',_this.get('current')+1);
                         _this.set('finale',true);
                         _this.transitionToRoute('members.new.confirmation');
-                    },
-                    //error
-                    function(){
-                        
-                    });
+                    }).catch(
+			function(){
+                           //console.log(error);
+			});
             }
             else
             {
@@ -79,7 +79,7 @@ export default Controller.extend({
         },
         closeForm(model){
             model.deleteRecord();
-            this.transitionToRoute('members.index');
+            this.transitionToRoute('index');
         }
     }
 });

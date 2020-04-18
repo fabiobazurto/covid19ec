@@ -1,12 +1,11 @@
-    <div class="form-group {{if this.errors.alive 'error'}}">
-      <label>¿Este familiar está vivo?</label>
-
-        <label class="radio-container">  {{radio-button value=true name="alive" checked=this.model.member.alive}}<span class="checkmark"></span>SI</label>
-        <label class="radio-container">  {{radio-button value=false name="alive" checked=this.model.member.alive}}<span class="checkmark"></span>NO</label>
-        {{#if this.errors.alive }}
-          <span class="help-block">{{this.errors.alive.[0].message}}</span>
-        {{/if}}
-    </div>
+<div class="form-group {{if this.errors.alive "error"}}">
+  <label>¿Este familiar está vivo?</label>
+  <label class="radio-container">  {{radio-button value=true name="alive" checked=this.model.member.alive}}<span class="checkmark"></span>SI</label>
+  <label class="radio-container">  {{radio-button value=false name="alive" checked=this.model.member.alive}}<span class="checkmark"></span>NO</label>
+  {{#if this.errors.alive }}
+    <span class="help-block">{{this.errors.alive.[0].message}}</span>
+  {{/if}}
+</div>
    
     
  

@@ -1,8 +1,19 @@
-
-<ul class="nav nav-pills {{navStacked}}">
-  {{#each navRoutes as |route| }}
-    <LinkTo @route={{route.link}} @tagName="li" @currentWhen={{route.link}} @href="false" activeClass="active">
-      <LinkTo @route={{route.link}} @model={{route.model}}>{{route.name}}</LinkTo>
-    </LinkTo>  
-  {{/each}}
-</ul>
+{{#if session.isAuthenticated}}
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class=" navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-3" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <LinkTo @route="notes" @class="navbar-brand">RescatEC</LinkTo>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-3">
+        Cuenta: {{session.data.authenticated.uuid}}
+        <button {{action "invalidateSession"}}>Salir</button>
+      </div>
+    </div>
+  </nav>
+{{/if}}

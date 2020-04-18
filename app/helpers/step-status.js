@@ -11,7 +11,7 @@ export function stepStatus(params/*, hash*/) {
         cssS='current';
     }    
   return cssS;
-};
+}
 
 export default helper(stepStatus);
 

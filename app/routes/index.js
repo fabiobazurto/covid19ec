@@ -2,8 +2,13 @@ import Route from '@ember/routing/route';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
 export default Route.extend(AuthenticatedRouteMixin, {
+/* route.js
+beforeModel() {
+  return this.store.findAll('member');
+},
+*/
+model() {
+  return this.store.findAll('member');
+}
 
-    model(){
-	return this.store.findAll('prize');
-    }
 });
