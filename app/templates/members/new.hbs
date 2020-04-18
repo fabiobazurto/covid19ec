@@ -1,7 +1,9 @@
 <div class="container ">
   {{#unless finale}}
     <div class="header">
-      <a {{action "closeForm" this.model.member}}><i class="fas fa-times fa-3x pull-right" style="color:'#ccc'"></i></a>
+      <button type="button" class="btn btn-default btn-sm pull-right" {{action "closeForm" this.model.member}}>
+        <span class="glyphicon glyphicon-remove " ></span>
+      </button>
       <h2 class="text-center">Nuevo Miembro</h2>
     </div>
     <div class="sign-up">
