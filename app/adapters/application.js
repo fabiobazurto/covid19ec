@@ -6,6 +6,7 @@ export default DS.RESTAdapter.extend(DataAdapterMixin,{
     host: config.apiUrl,
     namespace: config.apiNamespace,
     authorize(xhr) {
+	console.log(this.get('session.data.authenticated.accessToken'));
         xhr.setRequestHeader('access-token', this.get('session.data.authenticated.accessToken'));
         xhr.setRequestHeader('token', this.get('session.data.authenticated.accessToken'));
         xhr.setRequestHeader('uid', this.get('session.data.authenticated.uuid'));

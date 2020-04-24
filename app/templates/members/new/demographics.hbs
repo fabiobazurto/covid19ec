@@ -9,7 +9,7 @@
 
 <div class="form-group {{if this.errors.province "error"}}">
   <label for="name">Provincia</label>
-  <ListCombo @items={{this.model.provinces}} @fieldMember={{this.model.member.province}} @name="cbo_provinces"/>
+  <ListCombo @items={{this.model.provinces}} @fieldMember={{this.model.member.province}} @name="cbo_provinces" @defaultLabel="-- Escoja --"/>
   {{#if this.errors.province }}
     <span class="help-block">{{this.errors.province.[0].message}}</span>
   {{/if}}

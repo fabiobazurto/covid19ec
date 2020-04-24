@@ -1,0 +1,14 @@
+import { Factory } from 'ember-cli-mirage';
+import faker from 'faker';
+
+export default Factory.extend({
+    firstName() { return faker.name.firstName();},
+    lastName() { return faker.name.lastName(); },
+    gender() { return faker.random.arrayElement(['M','F']); },
+    picked() { return faker.random.arrayElement([true, false]);},
+    alive() { return faker.random.arrayElement([true, false]); },    
+    nationalId() { return "0921679346";},
+    city() { return faker.address.city}, 
+    province() { return 1;},   
+    status(){ return faker.random.arrayElement([1,2,3,4])}
+});

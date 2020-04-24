@@ -2,8 +2,20 @@ import Mirage from 'ember-cli-mirage';
 
 export default function() {
     this.namespace = '/api/v1';
-    //find all members
 
+    this.get('/members/search', (schema, request)=>{
+
+	let _term = request.queryParams['search[term]'];
+	let mem = schema.members.findBy({ nationalId: _term });
+
+	if(_term!='0921679346')
+	    return {};
+	else
+	    return { "member": {"nationalId":1}};
+
+    });
+    
+    //find all members
     this.post('members');
     this.post('auth', function(){
         return {

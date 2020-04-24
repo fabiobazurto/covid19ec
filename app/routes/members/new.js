@@ -13,9 +13,10 @@ export default Route.extend({
         }
     },    
     model(){
+	
 	return RSVP.hash({
             member: 	this.store.createRecord('member'),
-            provinces: this.store.findAll('province'),
+            provinces:  this.store.findAll('province')
 	});
 
 //	      return this.store.createRecord('member');

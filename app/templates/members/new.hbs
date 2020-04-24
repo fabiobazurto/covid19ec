@@ -27,7 +27,7 @@
       {{/unless}}
       {{#if showNext}}
         <div class="offset-sm-2 col-sm-2 pull-right">
-          <button {{action "goNext" this.model.member}}  class="btn btn-primary gonext">Siguiente</button>
+          <button {{action "goNext" this.model.member}}  class="btn btn-primary gonext" disabled={{this.isDisabled}}>Siguiente</button>
         </div>
       {{/if}}
     </div>

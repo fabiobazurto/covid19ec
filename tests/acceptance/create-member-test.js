@@ -14,7 +14,9 @@ module('Acceptance | create member', function(hooks) {
     setupMirageTest(hooks);
 
     test('visiting new member', async function(assert) {
-        await authenticateSession({
+
+
+	await authenticateSession({
             userId: 1,
             accessToken: 'abcdefg123456',
             uuid: '123456',
@@ -25,8 +27,8 @@ module('Acceptance | create member', function(hooks) {
 	await visit('/');
 
         assert.equal(currentURL(), '/', 'user authenticated');
-	
-        let provinces = createProvinces(10);
+        let provinces = createProvinces(10);	
+
 	
         this.set('model',provinces);
         
@@ -34,7 +36,7 @@ module('Acceptance | create member', function(hooks) {
         
         await fillIn('input[name="firstName"]', 'XFabio');
         await fillIn('input[name="lastName"]', 'XBazurto');
-        await fillIn('input[name="nationalId"]', '0921679346');
+        await fillIn('input[name="nationalId"]', '0918696139');
 
         await click('button.btn-primary');
 
@@ -86,48 +88,21 @@ module('Acceptance | create member', function(hooks) {
         assert.equal(currentURL(), '/', 'user authenticated');
 
 
-	let existingmember = createMembers(1)
+	createMembers(10);
 	
         let provinces = createProvinces(10);
         this.set('model',provinces);
         
 	await visit('/members/new');
-        
+	
+        await fillIn('input[name="nationalId"]', '0921679346');        
         await fillIn('input[name="firstName"]', 'XFabio');
         await fillIn('input[name="lastName"]', 'XBazurto');
-        await fillIn('input[name="nationalId"]', '0921679346');
+
 
         await click('button.btn-primary');
 
-        assert.equal(currentURL(), '/members/new/demographics', 'demographics OK');
-        
-        await click('input[name="gender"]:first-child');
-        await fillIn('select[name="cbo_provinces"]',"2");
-        await fillIn('input[name="city"]', 'GUAYAQUIL');        
-       
-        await click('button.gonext');
-
-        assert.equal(currentURL(), '/members/new/isAlive','isAlive OK');        
-
-        await click('input[name="alive"]:first-child');
-        
-        await click('button.gonext');
-
-        assert.equal(currentURL(), '/members/new/wasPicked','Preguntas OK');
-
-        await click('.sintom');
-
-        await click('button.goFinish');        
-        
-        assert.equal(currentURL(), '/members/new/confirmation','Finalizando');
-
-	await click('.btn-finish');
-
-        assert.equal(currentURL(), '/members','Cargando miembros');
-
-
-
-
-	
+        assert.equal(currentURL(), '/members/new/general', 'General OK');
+        	
     });    
 });

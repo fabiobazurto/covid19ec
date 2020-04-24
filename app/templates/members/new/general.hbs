@@ -1,6 +1,6 @@
 <fieldset class="scheduler-border">
   <div class="form-group {{if this.errors.nationalId "error"}}">
-    <Input name="nationalId" type="number" placeholder="Ingrese su Cedula" @value={{this.model.member.nationalId}} @class="form-control  numberText " @maxlength="10" @size="10" @keyPress={{ action "validateLength" }}  @keyDown={{ action "validateNumber" }}/>
+    <Input name="nationalId" type="number" placeholder="Ingrese su Cedula" @value={{this.model.member.nationalId}} @class="form-control  numberText " @maxlength="10" @size="10" @keyPress={{ action "validateLength" }} @change={{ action "validateNationalId" this.model.member  }}  @keyDown={{ action "validateNumber" }}/>
     {{#if this.errors.nationalId }}
       <span class="help-block">{{this.errors.nationalId.[0].message}}</span>
     {{/if}}

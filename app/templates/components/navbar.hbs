@@ -8,12 +8,31 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <LinkTo @route="notes" @class="navbar-brand">RescatEC</LinkTo>
+        <LinkTo @route="index" @class="navbar-brand">REC</LinkTo>
+        <div class=" hidden-md hidden-lg">
+          Logueado: {{session.data.authenticated.uuid}}
+        </div>
+
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-3">
-        Cuenta: {{session.data.authenticated.uuid}}
-        <button {{action "invalidateSession"}}>Salir</button>
+        <div  class="pull-right hidden-xs hidden-sm text-right">
+          <div class="user-account-info ">
+            Logueado: {{session.data.authenticated.uuid}}
+          </div>
+          <div class="user-logout">
+            <button class="btn-danger btn-sm btn" {{action "invalidateSession"}}>Salir</button>
+          </div>
+        </div>
+        
+        <ul class="nav navbar-nav">
+          <li class="hidden-md hidden-lg">
+            <a class="" {{action "invalidateSession"}}>Salir</a>         
+          </li>
+      </ul>
+
       </div>
+      
+
     </div>
   </nav>
 {{/if}}

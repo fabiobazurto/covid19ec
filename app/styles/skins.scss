@@ -8,6 +8,63 @@ input.form-control{
     height:50px;
 }
 
+/* LIST GROUP */
+
+.photo {
+  border-radius: 45px;
+  margin-right: 20px;
+  width: 90px;
+  height:90px;
+}
+.name {
+  font-weight: 700;
+}
+.expertise-label {
+  display:block;
+  font-weight: 700;
+  margin-top:10px;
+}
+.btn-more {
+  margin-top:10px;
+  width: 100%;
+}
+
+
+/* BUTTONS */
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 20px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+
+.btn-success .fa-plus{
+    color: $white;
+}
+/* ALERTS  */
+
+.not-found-panel {
+    font-family: $alert-font-result;
+    font-weight: $alert-result-weight;
+}
+
+.not-found-panel span{
+    font-size:45px;
+}
+
+
 /*Error label*/
 
 .error input {

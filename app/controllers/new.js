@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
+import config from 'reggina/config/environment';
 
 
 export default Controller.extend({
@@ -25,8 +26,38 @@ export default Controller.extend({
     showPrevious: computed('current','screens', function(){
         return (this.get('current')-1 >= 0);
     }),
-   
+
+    isDisabled: true,
+    
     actions: {
+
+	validateNationalId(member){
+
+		let _self = this;
+		let nationalid = member.nationalId;
+
+		this.store.query('member', {
+		    filter: {
+			nationalId: nationalid
+		    }
+		}).then(function(members) {
+		    console.log(members.length);
+		    let _member = members.get('firstObject');
+
+		    if(members.length>0){
+			_self.set('errors',{nationalId: [{message:'Cédula ya fue registrada en el sistema.'}]});
+			_self.set('isDisabled',true);
+			return false;
+		    }
+		    else{
+			_self.set('errors', {});
+			_self.set('isDisabled', false);
+		    }
+		});
+
+
+
+	},	
         validateLength(event){
             if (event.target.value.length >= event.target.maxLength){
                 event.preventDefault(); //stop character from entering input
@@ -44,8 +75,8 @@ export default Controller.extend({
             this.transitionToRoute('members.new.' + this.get('screens')[this.get('current')]);
         },
         goNext(member){
-            //verificar existencia
-            if (member.validate({only: this.get('validate')[this.get('current')]}))
+
+            if (member.validate({only: this.get('validate')[this.get('current')]}) || (this.get('current')==0 && this.get('isDisabled')==false ))
             {
                 this.set('errors',null);
                 this.set('current',this.get('current')+1);
