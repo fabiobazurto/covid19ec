@@ -4,7 +4,8 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    // Add options here
+      // Add options here
+      prepend: 'https://res.cloudinary.com/dystx9a3s/image/upload/v1587770234/rec/'
   });
 
   // Use `app.import` to add additional libraries to the generated

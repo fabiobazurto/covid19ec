@@ -1,6 +1,8 @@
+@import 'themes/cerulean/_variables';
 @import 'bootstrap';
+@import 'themes/cerulean/_bootswatch';
+@import '_variables';
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
-@import 'colors';
 @import 'util';
 @import 'main';
 @import 'structure';
