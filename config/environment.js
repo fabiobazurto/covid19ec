@@ -1,22 +1,23 @@
 'use strict';
 
 module.exports = function(environment) {
-	let ENV = {
-		modulePrefix: 'reggina',
-		environment,
-		rootURL: '/',
-		apiNamespace: process.env.API_NAMESAPCE,
-		apiUrl: process.env.API_URL,
-		apiAuthRoute: process.env.TOKEN_ROUTE,
-		apiRegisterRoute: process.env.REGISTER_ROUTE,
-		company_id: '1',		
-		locationType: 'auto',
-		'ember-cli-notifications': {
-			includeFontAwesome: true,
-			autoClear: true,
-			clearDuration: 5000,
-			cssClasses: 'notifika'
-		},	  
+    let ENV = {
+	modulePrefix: 'reggina',
+	environment,
+	rootURL: '/',
+	cdnURL:'https://res.cloudinary.com/dystx9a3s/image/upload/v1587770234/rec/',
+	apiNamespace: process.env.API_NAMESAPCE,
+	apiUrl: process.env.API_URL,
+	apiAuthRoute: process.env.TOKEN_ROUTE,
+	apiRegisterRoute: process.env.REGISTER_ROUTE,
+	company_id: '1',
+	locationType: 'auto',
+	'ember-cli-notifications': {
+	    includeFontAwesome: true,
+	    autoClear: true,
+	    clearDuration: 5000,
+	    cssClasses: 'notifika'
+	},	  
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -33,11 +34,13 @@ module.exports = function(environment) {
     }
   };
 
-  if (environment === 'development') {
-      ENV.apiUrl = process.env.API_URL;
-      ENV.apiNamespace=process.env.API_NAMESPACE;
-      ENV.apiAuthRoute=process.env.TOKEN_ROUTE;
-	    ENV.apiRegisterRoute= process.env.REGISTER_ROUTE;
+
+    if (environment === 'development') {
+	ENV.cdnURL='';
+	ENV.apiUrl = process.env.API_URL;
+	ENV.apiNamespace=process.env.API_NAMESPACE;
+	ENV.apiAuthRoute=process.env.TOKEN_ROUTE;
+	ENV.apiRegisterRoute= process.env.REGISTER_ROUTE;
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;

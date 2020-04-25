@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
-import config from 'reggina/config/environment';
+
 
 
 export default Controller.extend({

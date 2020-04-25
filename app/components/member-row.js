@@ -1,7 +1,14 @@
 import Component from '@ember/component';
 import {computed} from '@ember/object';
+import config from 'reggina/config/environment';
 
 export default Component.extend({
+
+    cdnURL: computed(function(){
+        console.log(config.cdnURL);
+        return config.cdnURL;
+    }),
+    
     gender: computed('member', function(){
         
         return (this.member.gender=='M')?"Masculino":"Femenino";
