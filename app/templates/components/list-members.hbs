@@ -1,0 +1,15 @@
+
+<div class="list-group" role="tablist">
+
+  {{#each items as |member|}}
+    <MemberRow @member={{member}} @onConfirm={{action send "clickMember"}} />
+  {{else}}
+    <div class="not-found-panel text-center">
+      <p><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span></p><p></p><br>
+      <h3>No tiene miembros registrados</h3>
+    </div>
+  {{/each}}      
+
+</div>    
+
+

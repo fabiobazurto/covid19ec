@@ -18,7 +18,7 @@ export default Model.extend(Validator,{
     city: attr('string'),
     picked: attr('boolean'),
     alive: attr('boolean'),
-    
+    active: attr('boolean'),
     validations:{
         nationalId: {
             presence: true,

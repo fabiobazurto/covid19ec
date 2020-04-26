@@ -1,14 +1,14 @@
 <a href="#branch_{{member.id}}" class="list-group-item" role="button" data-toggle="collapse">
   <div class="col-md-10">
-    <img src="{{cdnURL}}/assets/images/{{member.gender}}.png" class="pull-left photo">
+    <img src="{{cdnURL}}/assets/images/{{member.gender}}{{member.status}}.png" class="pull-left photo">
     <h4 class="list-group-item-heading name">{{member.fullName}}</h4>
     <p class="list-group-item-text title"># CI:{{member.nationalId}}</p>
   </div>
   <div class="col-md-2">
     <div class="expertise">
+      <span class="label label-default expertise">{{statusName}}</span>            
       <span class="label label-default expertise">{{this.gender}}</span>
       <span class="label label-default expertise">{{member.city}}</span>
-      
 
       <!-- <div class="read-more">
         <button type="button" class="btn btn-primary btn-more">Read More &nbsp; <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></button>
@@ -19,12 +19,14 @@
 <br>
 
 <div class="clearfix"></div>
-<p class="labels">
+<p class="labels text-right">
 
     <div class="collapse" id="branch_{{member.id}}">
       <div class="card card-body">
-        <button role="button" class="btn btn-primary">Contagiado</button>    <button role="button" class="btn btn-primary">Recuperado</button>
-        <button role="button" class="btn btn-primary">Fallecido</button>
+        <button role="button" class="btn btn-primary">Editar</button>
+        
+
+        <button  {{action "confirmDeletion" member}} class="btn btn-danger">Borrar</button>                
       </div>
     </div>
   </p>

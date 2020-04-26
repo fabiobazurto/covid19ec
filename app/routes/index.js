@@ -7,8 +7,15 @@ beforeModel() {
   return this.store.findAll('member');
 },
 */
-model() {
-  return this.store.findAll('member');
-}
-
+    model() {
+	return this.store.findAll('member');
+    },
+    actions:{
+	destroyMember(member){
+	    console.log('route');
+	    console.log(member);
+	    return true;
+	}
+    }
+    
 });

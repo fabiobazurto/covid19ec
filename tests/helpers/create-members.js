@@ -16,7 +16,7 @@ export default function createMembers(records){
 	    city: computed(()=> 'Guayaquil'),
 	    picked: computed(()=> true),
 	    alive: computed(()=> false),
-	    
+	    active: computed(()=> true)	    
         }).create();
 
         contactObjects.push(contactObject);

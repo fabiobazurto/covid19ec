@@ -27,16 +27,6 @@
 <br>
 <div class="row">
   <div class="col-xs-12 col-lg-12">
-    <div class="list-group" role="tablist">
-      {{#each model as |member|}}
-        <MemberRow @member={{member}} />
-      {{else}}
-        <div class="not-found-panel text-center">
-          <p><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span></p><p></p><br>
-          <h3>No tiene miembros registrados</h3>
-        </div>
-        
-      {{/each}}      
-    </div>    
+    <ListMembers @items={{model}} @onClickMember={{action send "destroyMember" }}/>    
   </div>
 </div>
