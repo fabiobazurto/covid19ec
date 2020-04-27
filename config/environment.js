@@ -10,6 +10,8 @@ module.exports = function(environment) {
 	apiUrl: process.env.API_URL,
 	apiAuthRoute: process.env.TOKEN_ROUTE,
 	apiRegisterRoute: process.env.REGISTER_ROUTE,
+	canEdit: 1,
+	canReportDead: 1,
 	company_id: '1',
 	locationType: 'auto',
 	'ember-cli-notifications': {
@@ -41,6 +43,8 @@ module.exports = function(environment) {
 	ENV.apiNamespace=process.env.API_NAMESPACE;
 	ENV.apiAuthRoute=process.env.TOKEN_ROUTE;
 	ENV.apiRegisterRoute= process.env.REGISTER_ROUTE;
+	ENV.canEdit=process.env.CAN_EDIT;
+	ENV.canReportDead=process.env.CAN_REPORT_DEAD;	
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -72,14 +76,17 @@ module.exports = function(environment) {
   }
 
 
-	if (environment === 'production') {
-		// here you can enable a production-specific feature
-  ENV.apiUrl = process.env.API_URL;
-      ENV.apiNamespace=process.env.API_NAMESPACE;
-      ENV.apiAuthRoute=process.env.TOKEN_ROUTE;
-          ENV.apiRegisterRoute= process.env.REGISTER_ROUTE;
-
-	}
+    if (environment === 'production') {
+	// here you can enable a production-specific feature
+	ENV.apiUrl = process.env.API_URL;
+	ENV.apiNamespace=process.env.API_NAMESPACE;
+	ENV.apiAuthRoute=process.env.TOKEN_ROUTE;
+        ENV.apiRegisterRoute= process.env.REGISTER_ROUTE;
+	ENV.cdnURL=process.env.CDN_URL;
+	ENV.canEdit=process.env.CAN_EDIT;
+	ENV.canReportDead=process.env.CAN_REPORT_DEAD;
+	
+    }
 
 	return ENV;
 };
