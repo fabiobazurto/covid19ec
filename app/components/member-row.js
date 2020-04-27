@@ -45,10 +45,16 @@ export default Component.extend({
 
     }),
     canEdit: computed('member', function(){
+        console.log(config.canEdit);
         let canedit = true;
-        if(this.member.status<3 && this.member.picked==false)
-            canedit = false;
-        return (config.canEdit=="1")?canedit:false;
+        if(config.canEdit=="1")
+        {
+            if(this.member.status<3 && this.member.picked==false)
+                canedit = false;
+            return true;
+        }
+        else
+            return false;
     }),
     actions:{
         confirmDeletion: function(member){
