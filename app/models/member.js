@@ -19,6 +19,7 @@ export default Model.extend(Validator,{
     picked: attr('boolean'),
     alive: attr('boolean'),
     active: attr('boolean'),
+    age: attr('number'),
     validations:{
         nationalId: {
             presence: true,
@@ -64,7 +65,10 @@ export default Model.extend(Validator,{
 		}
 	    ],
 	},
-//    },
+	//    },
+	age:{
+	    presence: true
+	},
         firstName: {
             presence: true
         },

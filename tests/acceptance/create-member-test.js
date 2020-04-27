@@ -46,7 +46,9 @@ module('Acceptance | create member', function(hooks) {
         
         await fillIn('select[name="cbo_provinces"]',"2");
         
-        await fillIn('input[name="city"]', 'GUAYAQUIL');        
+        await fillIn('input[name="city"]', 'GUAYAQUIL');
+
+        await fillIn('input[name="age"]', '37');        	
        
         await click('button.gonext');
 

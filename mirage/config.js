@@ -3,10 +3,9 @@ import Mirage from 'ember-cli-mirage';
 export default function() {
     this.namespace = '/api/v1';
 
-    this.get('/members/search', (schema, request)=>{
+    this.get('/members?', (schema, request)=>{
 
 	let _term = request.queryParams['search[term]'];
-	let mem = schema.members.findBy({ nationalId: _term });
 
 	if(_term!='0921679346')
 	    return {};
@@ -35,9 +34,13 @@ export default function() {
         };
     });
     
-    this.get('members', (schema)=>{
+    this.get('members', (schema, request)=>{
 
-        return schema.members.all();
+	let _term = request.queryParams['filter[nationalId]'];
+	if(_term=='0921679346')
+	    return { "members": [{"id":1,"nationalId":1}]};
+	else
+            return schema.members.all();
     });
 
     this.get('provinces', ()=>{

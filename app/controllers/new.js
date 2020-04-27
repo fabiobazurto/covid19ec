@@ -16,7 +16,7 @@ export default Controller.extend({
     init: function(){
         this._super();
 	this.set('screens',['general','demographics','isAlive','wasPicked' ]);
-	this.set('validate',[['firstName','lastName','nationalId'],['gender', 'city', 'province'],['alive'],['status']]);
+	this.set('validate',[['firstName','lastName','nationalId'],['gender','age', 'city', 'province'],['alive'],['status']]);
     },
     current:0,
     

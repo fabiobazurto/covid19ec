@@ -28,7 +28,27 @@ export default Component.extend({
 
 	return arrIcon[this.member.status];
     }),
+    iconBgColor: computed('member', function(){
+        let arrIcon = ['','alert-warning', 'alert-danger','alert-primary','alert-success']
+
+	return arrIcon[this.member.status];
+    }),
     
+    pendingPickUp: computed('member', function(){
+        return (this.member.status<3 && !this.member.picked)?true:false;
+
+    }),
+    wasPicked: computed('member', function(){
+        return (this.member.status<3 && !this.member.picked)?"No recogido":"Recogido";
+
+    }),
+    canEdit: computed('member', function(){
+        let canedit = true;
+        if(this.member.status<3 && this.member.picked==false)
+            canedit = false;
+        return canedit;
+    }),
+
     actions:{
         confirmDeletion: function(member){
             let _self = this;

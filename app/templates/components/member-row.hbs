@@ -1,19 +1,24 @@
-<a href="#branch_{{member.id}}" class="list-group-item" role="button" data-toggle="collapse">
+<a href="#branch_{{member.id}}" class="list-group-item member-row" role="button" data-toggle="collapse">
   <div class="col-md-10">
-    <img src="{{cdnURL}}/assets/images/{{member.gender}}{{member.status}}.png" class="pull-left photo">
+    <img src="{{cdnURL}}/assets/images/{{member.gender}}{{member.status}}.png" class="pull-left photo {{iconBgColor}}">
     <h4 class="list-group-item-heading name">{{member.fullName}}</h4>
     <p class="list-group-item-text title"># CI:{{member.nationalId}}</p>
   </div>
   <div class="col-md-2">
     <div class="expertise">
+      {{#if pendingPickUp}}
+        <span class="label label-default expertise btn-danger">{{wasPicked}}</span>
+      {{/if}}
+      
       <span class="label label-default expertise">{{statusName}}</span>            
       <span class="label label-default expertise">{{this.gender}}</span>
       <span class="label label-default expertise">{{member.city}}</span>
-
-      <!-- <div class="read-more">
-        <button type="button" class="btn btn-primary btn-more">Read More &nbsp; <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></button>
-      </div> -->
-
+      {{#if pendingPickUp}}
+        <div class="read-more">
+          <button type="button" class="btn btn-danger btn-more" role="button">Solicitar recoleccion <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></button>
+        </div> 
+      {{/if}}
+      
     </div>
   </div>
 <br>
@@ -23,10 +28,11 @@
 
     <div class="collapse" id="branch_{{member.id}}">
       <div class="card card-body">
-        <button role="button" class="btn btn-primary">Editar</button>
-        
+        {{#if canEdit}}
+          <button role="button" class="btn btn-primary">Editar</button>
 
-        <button  {{action "confirmDeletion" member}} class="btn btn-danger">Borrar</button>                
+          <button  {{action "confirmDeletion" member}} class="btn btn-danger">Borrar</button>
+        {{/if}}
       </div>
     </div>
   </p>

@@ -1,4 +1,5 @@
 <div class="form-group  {{if this.errors.gender "error"}}">
+<!--  <label for="name" class="">Edad</label> -->
   <label for="name" class="">Género</label>
   <label class="radio-container">  {{radio-button value="M" name="gender" checked=this.model.member.gender}}<span class="checkmark"></span>Masculino</label>
   <label class="radio-container">  {{radio-button value="F" name="gender" checked=this.model.member.gender}}<span class="checkmark"></span>Femenino</label>
@@ -8,16 +9,25 @@
 </div>
 
 <div class="form-group {{if this.errors.province "error"}}">
-  <label for="name">Provincia</label>
-  <ListCombo @items={{this.model.provinces}} @fieldMember={{this.model.member.province}} @name="cbo_provinces" @defaultLabel="-- Escoja --"/>
+  <Input name="age" type="number" placeholder="Ingrese su edad" @value={{this.model.member.age}} @class="form-control  numberText " @maxlength="2" @size="2" @keyPress={{ action "validateLength" }}  @keyDown={{ action "validateNumber" }}/>
+  {{#if this.errors.age }}
+    <span class="help-block">{{this.errors.age.[0].message}}</span>
+  {{/if}}
+  
+</div>  
+
+
+<div class="form-group {{if this.errors.province "error"}}">
+<!--  <label for="name">Provincia</label> -->
+  <ListCombo @items={{this.model.provinces}} @fieldMember={{this.model.member.province}} @name="cbo_provinces" @defaultLabel="-- Seleccione provincia residencia--"/>
   {{#if this.errors.province }}
     <span class="help-block">{{this.errors.province.[0].message}}</span>
   {{/if}}
 </div>
 
 <div class="form-group {{if this.errors.city "error"}}">
-  <label for="city">Ciudad</label>
-  <Input type="text" name="city" placeholder="Ciudad" @value={{this.model.member.city}} class="form-control" size="50" />
+<!--  <label for="city">Ciudad</label> -->
+  <Input type="text" name="city" placeholder="Ingrese la Ciudad en que reside" @value={{this.model.member.city}} class="form-control" size="50" />
   {{#if this.errors.city }}
     <span class="help-block">{{this.errors.city.[0].message}}</span>
   {{/if}}
