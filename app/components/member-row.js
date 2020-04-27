@@ -35,7 +35,7 @@ export default Component.extend({
     }),
     
     pendingPickUp: computed('member', function(){
-        if(config.canReportDead==1)
+        if(config.canReportDead=="1")
             return (this.member.status<3 && !this.member.picked)?true:false;
         else
             return false;
@@ -48,7 +48,7 @@ export default Component.extend({
         let canedit = true;
         if(this.member.status<3 && this.member.picked==false)
             canedit = false;
-        return (config.canEdit==1)?canedit:false;
+        return (config.canEdit=="1")?canedit:false;
     }),
     actions:{
         confirmDeletion: function(member){
