@@ -35,6 +35,8 @@ module.exports = function(environment) {
       // when it is created
     }
   };
+	console.log(process.env.CDN_URL);
+    console.log(environment);
 
 
     if (environment === 'development') {
