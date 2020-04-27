@@ -1,0 +1,64 @@
+
+//SKIN
+
+.landing-box{
+    background-color: rgba($white, 0.2);
+    padding: 30px;
+}
+
+.card-text{
+    font-family: "Nunito",Arial;
+    font-size:1.2em;
+    font-weight: 300;
+}
+
+.landing-header h3 {
+    background-color: $white;
+    font-family: "Open Sans",Arial;
+    font-size: 2.3em !important; //35px !important;
+    line-height: 68px !important;
+//    font-size: 40px !important;
+//    line-height: 68px !important;    
+    box-shadow: 0 0 0 5px #ffffff;
+    background-color: #ffffff;
+
+    display: inline;
+    box-decoration-break: clone;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.landing-header .login h3{
+    color: rgba($red, 0.8) !important;    
+}
+
+.landing-header .register h3{
+    color: rgba($blue, 0.8) !important;    
+}
+
+
+ .card-link {
+    font-size: 28px;
+    color: #bf4b1d;
+    border-bottom: 1px solid #FFB737;
+    text-transform: uppercase;
+    margin-top: 15px;
+    font-family: futura-pt,Arial;
+    font-weight: 800;
+    display: inline;
+    letter-spacing: -1px;
+}
+
+ .card-link, .card-link:visited, .card-link:focus {
+     color: #bf4b1d !important;
+     border-bottom: 1px solid #bf4b1d !important;
+     font-size: 30px !important;
+ }
+
+ .fade-link {
+	display: inline-block;
+	animation: faid-effect 1s .5s 1 alternate backwards;
+	transition: .5s;
+}
+ 
+//STRUCTURE

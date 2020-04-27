@@ -1,9 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
 @import 'themes/cerulean/_variables';
 @import 'bootstrap';
 @import 'themes/cerulean/_bootswatch';
 @import '_variables';
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-@import 'util';
+@import 'landing';
+@import 'util'; //Para login page
 @import 'main';
 @import 'structure';
 @import 'skins';
