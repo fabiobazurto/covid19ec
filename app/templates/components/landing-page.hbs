@@ -1,20 +1,36 @@
+<RollingScore @sentence="CON CIFRAS" @class="hidden-xs hidden-sm">
+          <span>CUIDAS TU FAMILIA</span>
+          <span>TOMAS DECISIONES</span>
+          <span>Y TUS DATOS</span>
+          <span>SE SALVAN VIDAS</span>
+          <span>SALIMOS DEL COVID</span>
+</RollingScore>
+
+<RollingScore  @class="hidden-md hidden-lg fs-20">
+          <span class="fs-30">TUS DATOS</span>
+          <span class="fs-30">AYUDAN A</span>
+          <span class="fs-30">SALVAR VIDAS</span>
+          <span class="fs-30">INSCRIBETE</span>
+          <span class="fs-30">REGISTRATE</span>          
+</RollingScore>
+
 
 <div class="row">
-  <div class="col-md-6">
-  <div class="landing-box  hidden-xs hidden-sm {{cssBackground}}">
-    <h3 class="card-h">Con tu ayuda, venceremos el COVID.<br/> Registra tu grupo familiar.</h3>
+  <div class="col-md-6 hidden-xs hidden-sm cell-100-vh center-v">
+  <div class="landing-box  {{cssBackground}}">
+    <h3 class="card-h">Con tu ayuda, venceremos el COVID.<br/> Inscríbete y luego Ingresa para registrar tu grupo familiar.</h3>
     <p class="card-text">Todos somos responsables, juntos somos invencibles. Crea tu cuenta, agrega a tus miembros familiares, solicita retiren el fallecido de tu domicilio.</p>
 
     <span class="fade-link">
       
       <LinkTo @route="register" class="card-link">
-      Registrate ahora
+      Inscríbete ahora
       </LinkTo>
       
     </span>
   </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6 cell-100-vh center-v">
     {{yield}}
   </div>
   
