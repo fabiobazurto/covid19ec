@@ -21,34 +21,22 @@ Or, if you want to replicate this webapp into your neighborhood.
 * `npm install`
 
 ### Declare Environment variables
-`export API_NAMESPACE = 'api/v1'`
-`export API_URL = 'https://rescatec-api.herokuapp.com/'`
-`export CAN_EDIT = 0`
-`export CAN_REPORT_DEAD = 0`
-`export CDN_URL = 'https://res.cloudinary.com/dystx9a3s/image/upload/v1587770234/rec/'`
-`export REGISTER_ROUTE = 'auth'`
-`export TOKEN_ROUTE = 'auth/sign_in'`
+
+```
+export API_NAMESPACE = 'api/v1'
+export API_URL = 'https://rescatec-api.herokuapp.com/'
+export CAN_EDIT = 0
+export CAN_REPORT_DEAD = 0
+export CDN_URL = 'https://res.cloudinary.com/dystx9a3s/image/upload/v1587770234/rec/'
+export REGISTER_ROUTE = 'auth'
+export TOKEN_ROUTE = 'auth/sign_in'
+
+```
 
 ## Running / Development
 
 * `ember s`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
-
-## Running Tests
-
-* `ember test`
-
-If your machine doesnt have Chrome installed then you can use 
-
-* `ember test --server`
-
-This command will provide you an URL to test on any web browser. Copy URL and paste it into the browser navigation bar and push enter.
-
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
 
 ### Deploying
 
