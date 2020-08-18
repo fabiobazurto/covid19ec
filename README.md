@@ -1,10 +1,13 @@
-# EmberAuth
+# Covid-19 Patient register FrontEnd
 
-This repository was extracted from a real project that I'm working on. This is the minimal initial project to begin with your development. The repository includes Ember Simple Authentication implementation against a Rails Heroku API. You should make some changes to serializers and  adapters.
+You can enter and register your relatives with covid
 
-## What I am using
+https://rescate.herokuapp.com/
 
-You will need the following things properly installed on your computer.
+Or, if you want to replicate this webapp into your neighborhood.
+
+
+## Requirements
 
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/) (with npm) Preferred: >=11
@@ -13,9 +16,18 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone https://github.com/fabiobazurto/ember-auth.git
-* `cd ember-auth`
+* `git clone https://github.com/fabiobazurto/covid19ec.git
+* `cd covid19ec`
 * `npm install`
+
+### Declare Environment variables
+`export API_NAMESPACE = 'api/v1'`
+`export API_URL = 'https://rescatec-api.herokuapp.com/'`
+`export CAN_EDIT = 0`
+`export CAN_REPORT_DEAD = 0`
+`export CDN_URL = 'https://res.cloudinary.com/dystx9a3s/image/upload/v1587770234/rec/'`
+`export REGISTER_ROUTE = 'auth'`
+`export TOKEN_ROUTE = 'auth/sign_in'`
 
 ## Running / Development
 
